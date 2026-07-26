@@ -70,5 +70,3 @@ export async function fetchFeed(feedURL: string) {
 
   return Final;
 }
-
-export async function createFeed() {}
