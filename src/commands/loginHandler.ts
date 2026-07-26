@@ -1,6 +1,6 @@
 import { exit } from "node:process";
-import { setUser } from "./config";
-import { getUserById } from "./lib/db/queries/user";
+import { setUser } from "../config";
+import { getUserById } from "../lib/db/queries/user";
 
 export async function handlerLogin(cmdName: string, ...args: string[]): Promise<void> {
   if (args.length === 0) {

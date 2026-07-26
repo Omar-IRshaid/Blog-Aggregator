@@ -1,6 +1,6 @@
 import { exit } from "process";
-import { createUser, getUserById } from "./lib/db/queries/user";
-import { setUser } from "./config";
+import { createUser, getUserById } from "../lib/db/queries/user";
+import { setUser } from "../config";
 
 export async function handlerRegister(cmdName: string, ...args: string[]) {
   if (args.length === 0) {

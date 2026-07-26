@@ -1,6 +1,6 @@
-import { readConfig } from "./config";
-import { getFeeds } from "./lib/db/queries/feed";
-import { getUsers } from "./lib/db/queries/user";
+import { readConfig } from "../config";
+import { getFeeds } from "../lib/db/queries/feed";
+import { getUsers } from "../lib/db/queries/user";
 
 // export async function handlerUsers(cmdName: string, ...args: string[]) {
 //   const result = await getUsers();

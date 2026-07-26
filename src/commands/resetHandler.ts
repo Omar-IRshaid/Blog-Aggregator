@@ -1,4 +1,4 @@
-import { resetUsersTable } from "./lib/db/queries/user";
+import { resetUsersTable } from "../lib/db/queries/user";
 
 export async function handlerReset(cmdName: string, ...args: string[]) {
   await resetUsersTable();

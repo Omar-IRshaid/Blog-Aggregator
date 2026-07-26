@@ -8,11 +8,11 @@ export async function createFeed(name: string, url: string, user_id: string) {
   return result;
 }
 
-// export async function getUserById(name: string) {
-//   const [result] = await db.select().from(users).where(eq(users.name, name));
+export async function getFeedByUrl(url: string) {
+  const [result] = await db.select().from(feeds).where(eq(feeds.url, url));
 
-//   return result;
-// }
+  return result;
+}
 
 // export async function resetUsersTable() {
 //   await db.delete(users);

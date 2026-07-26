@@ -15,6 +15,13 @@
       "when": 1785065850020,
       "tag": "0001_acoustic_beyonder",
       "breakpoints": true
+    },
+    {
+      "idx": 2,
+      "version": "7",
+      "when": 1785077822494,
+      "tag": "0002_green_mystique",
+      "breakpoints": true
     }
   ]
 }
