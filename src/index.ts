@@ -8,6 +8,7 @@ import { handlerLogin } from "./loginHandler";
 import { handlerRegister } from "./registerHandler";
 import { handlerReset } from "./resetHandler";
 import { handlerUsers } from "./usersHandler";
+import { handlerAgg } from "./aggHandler";
 
 async function main() {
   // setUser("omar");
@@ -18,6 +19,7 @@ async function main() {
   registerCommand(registry, "register", handlerRegister);
   registerCommand(registry, "reset", handlerReset);
   registerCommand(registry, "users", handlerUsers);
+  registerCommand(registry, "agg", handlerAgg);
 
   const args = argv.slice(2);
 
