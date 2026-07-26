@@ -10,6 +10,7 @@ import { handlerReset } from "./resetHandler";
 import { handlerUsers } from "./usersHandler";
 import { handlerAgg } from "./aggHandler";
 import { handlerAddFeed } from "./addFeedHandler";
+import { handlerFeeds } from "./feedsHandler";
 
 async function main() {
   // setUser("omar");
@@ -22,6 +23,7 @@ async function main() {
   registerCommand(registry, "users", handlerUsers);
   registerCommand(registry, "agg", handlerAgg);
   registerCommand(registry, "addfeed", handlerAddFeed);
+  registerCommand(registry, "feeds", handlerFeeds);
 
   const args = argv.slice(2);
 

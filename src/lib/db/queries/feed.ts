@@ -18,7 +18,7 @@ export async function createFeed(name: string, url: string, user_id: string) {
 //   await db.delete(users);
 // }
 
-// export async function getUsers() {
-//   const result = await db.select().from(users);
-//   return result;
-// }
+export async function getFeeds() {
+  const result = await db.select().from(feeds).innerJoin(users, eq(users.id, feeds.user_id));
+  return result;
+}
