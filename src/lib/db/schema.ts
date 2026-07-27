@@ -22,6 +22,7 @@ export const feeds = pgTable("feeds", {
   user_id: uuid("user_id").references(() => users.id, {
     onDelete: "cascade",
   }),
+  lastFetchedAt: timestamp("last_fetched_at"),
 });
 
 export const feed_follows = pgTable(
@@ -46,5 +47,23 @@ export const feed_follows = pgTable(
   (table) => [unique("unique_room_user_combination").on(table.user_id, table.feed_id)],
 );
 
+export const posts = pgTable("posts", {
+  id: uuid("id").primaryKey().defaultRandom().notNull(),
+  createdAt: timestamp("created_at").notNull().defaultNow(),
+  updatedAt: timestamp("updated_at")
+    .notNull()
+    .defaultNow()
+    .$onUpdate(() => new Date()),
+  title: text("title").notNull(),
+  url: text("url").notNull().unique(),
+  description: text("description"),
+  published_at: timestamp("published_at"),
+
+  feed_id: uuid("feed_id").references(() => feeds.id, {
+    onDelete: "cascade",
+  }),
+});
+
+export type FeedFollows = typeof feed_follows.$inferSelect;
 export type Feed = typeof feeds.$inferSelect;
 export type User = typeof users.$inferSelect;

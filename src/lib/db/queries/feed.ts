@@ -1,4 +1,4 @@
-import { eq } from "drizzle-orm";
+import { eq, sql } from "drizzle-orm";
 import { db } from "..";
 import { feeds, users } from "../schema";
 import { UUID } from "node:crypto";
@@ -14,11 +14,20 @@ export async function getFeedByUrl(url: string) {
   return result;
 }
 
-// export async function resetUsersTable() {
-//   await db.delete(users);
-// }
+export async function markFeedFetched(feed_id: string) {
+  await db.update(feeds).set({ updatedAt: new Date(), lastFetchedAt: new Date() }).where(eq(feeds.id, feed_id));
+}
 
 export async function getFeeds() {
   const result = await db.select().from(feeds).innerJoin(users, eq(users.id, feeds.user_id));
+  return result;
+}
+
+export async function getNextFeedToFetch() {
+  const [result] = await db
+    .select()
+    .from(feeds)
+    .orderBy(sql`${feeds.lastFetchedAt} ASC NULLS FIRST`)
+    .limit(1);
   return result;
 }

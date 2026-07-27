@@ -26,14 +26,13 @@ export async function fetchFeed(feedURL: string) {
   if (!resObj.ok) {
     throw new Error("Coudnt fetch the RSSFeed!!");
   }
-
   const result = await resObj.text();
   const parser = new XMLParser({ processEntities: false });
   const parsed = parser.parse(result);
 
   // console.log(parsed);
 
-  const channel = parsed.rss.channel;
+  const channel = parsed.rss?.channel;
 
   if (!channel) {
     throw new Error("channel field is missing!!");

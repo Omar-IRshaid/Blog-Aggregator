@@ -22,6 +22,20 @@
       "when": 1785077822494,
       "tag": "0002_green_mystique",
       "breakpoints": true
+    },
+    {
+      "idx": 3,
+      "version": "7",
+      "when": 1785095848418,
+      "tag": "0003_luxuriant_wrecker",
+      "breakpoints": true
+    },
+    {
+      "idx": 4,
+      "version": "7",
+      "when": 1785178402949,
+      "tag": "0004_nostalgic_sleepwalker",
+      "breakpoints": true
     }
   ]
 }
